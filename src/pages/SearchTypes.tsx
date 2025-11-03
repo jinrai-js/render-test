@@ -1,6 +1,7 @@
 import { useQuery, useSearchArray } from "mark-api-react"
 import { type FC } from "react"
 import CategoryChips, { type Category } from "../components/Categoryes"
+import { ApiURl } from "../api"
 
 interface SearchTypesProps {}
 
@@ -8,7 +9,7 @@ const SearchTypes: FC<SearchTypesProps> = () => {
     const [selected, setSelected] = useSearchArray("types", [])
     console.log({ selected })
 
-    const [[category]] = useQuery<undefined, Category[]>("GET", "/api/categories/category.json")
+    const [[category]] = useQuery<undefined, Category[]>("GET", `${ApiURl}/categories/category.json`)
     const [[data], { loading }] = useQuery<{ tags: string[] }, { tags: string[] }>(
         "POST",
         "https://httpbin.org/post",

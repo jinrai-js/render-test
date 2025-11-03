@@ -1,5 +1,6 @@
 import { useQuery } from "mark-api-react"
 import type { FC } from "react"
+import { ApiURl } from "../api"
 
 interface Todo {
     id: number
@@ -7,7 +8,7 @@ interface Todo {
     completed: boolean
 }
 
-const useTodos = () => useQuery<undefined, { todos: Todo[] }>("GET", "/api/todos.json")
+const useTodos = () => useQuery<undefined, { todos: Todo[] }>("GET", `${ApiURl}/todos.json`)
 
 interface TodosProps {}
 

@@ -2,6 +2,7 @@ import { useQuery, useSearchValue } from "mark-api-react"
 import type { FC } from "react"
 import type { PaginationProps } from "../components/Pagination"
 import Pagination from "../components/Pagination"
+import { ApiURl } from "../api"
 
 export interface Output {
     todos: Todo[]
@@ -18,7 +19,7 @@ interface TasksProps {}
 
 const Tasks: FC<TasksProps> = () => {
     const [page, setPage] = useSearchValue("page", "1")
-    const [[data], { loading }] = useQuery<{ page: number }, Output>("GET", `/api/tasks/${page}.json`, undefined, {
+    const [[data], { loading }] = useQuery<{ page: number }, Output>("GET", `${ApiURl}/tasks/${page}.json`, undefined, {
         deps: [page],
     })
 

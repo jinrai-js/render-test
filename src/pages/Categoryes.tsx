@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import type { Output } from "./Tasks"
 import Pagination from "../components/Pagination"
 import CategoryChips, { type Category } from "../components/Categoryes"
+import { ApiURl } from "../api"
 
 interface CategoryesProps {}
 
@@ -12,8 +13,8 @@ const Categoryes: FC<CategoryesProps> = () => {
     const [page, setPage] = useSearchValue("page", "1")
     const navigate = useNavigate()
 
-    const [[category]] = useQuery<undefined, Category[]>("GET", "/api/categories/category.json")
-    const [[data]] = useQuery<{ page: number }, Output>("GET", `/api/categories/${type}/${page}.json`, undefined, {
+    const [[category]] = useQuery<undefined, Category[]>("GET", `${ApiURl}/categories/category.json`)
+    const [[data]] = useQuery<{ page: number }, Output>("GET", `${ApiURl}/categories/${type}/${page}.json`, undefined, {
         deps: [page, type],
     })
 
