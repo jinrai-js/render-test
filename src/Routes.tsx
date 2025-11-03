@@ -12,17 +12,19 @@ interface RoutesProps {}
 const Routes: FC<RoutesProps> = () => {
     return (
         <All>
-            <Route path="/" element={<Home />} />
-            <Route path="/todos" element={<Todos />} />
-            <Route path="/tasks" element={<Tasks />} />
+            <Route path="render-test">
+                <Route index element={<Home />} />
+                <Route path="todos" element={<Todos />} />
+                <Route path="tasks" element={<Tasks />} />
 
-            <Route path="/categoryes" element={<Categoryes />}>
-                <Route path=":type" element={<Categoryes />} />
-            </Route>
+                <Route path="categoryes" element={<Categoryes />}>
+                    <Route path=":type" element={<Categoryes />} />
+                </Route>
 
-            <Route path="/search">
-                <Route path="text" element={<SearchText />} />
-                <Route path="types" element={<SearchTypes />} />
+                <Route path="search">
+                    <Route path="text" element={<SearchText />} />
+                    <Route path="types" element={<SearchTypes />} />
+                </Route>
             </Route>
         </All>
     )
