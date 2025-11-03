@@ -1,11 +1,11 @@
-import { BrowserRouter, Link } from "react-router-dom"
+import { HashRouter, Link } from "react-router-dom"
 import Routes from "./Routes"
 import { Adapter } from "mark-api-react/rrd6"
 
 function App() {
     return (
         <div className="p-10">
-            <BrowserRouter>
+            <HashRouter>
                 <nav className="flex gap-8 text-[20px] mb-8">
                     <Link to="/">Home</Link>
 
@@ -31,7 +31,7 @@ function App() {
                         <Routes />
                     </Adapter>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     )
 }
