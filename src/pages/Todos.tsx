@@ -19,7 +19,7 @@ const Todos: FC<TodosProps> = () => {
 
     return (
         <section className="flex flex-col gap-3">
-            {data?.todos.map(todo => {
+            {data?.todos?.map(todo => {
                 return (
                     <label className={`flex gap-2 ${todo.completed ? "line-through" : ""}`} key={todo.id}>
                         <input checked={todo.completed} type="checkbox" />
